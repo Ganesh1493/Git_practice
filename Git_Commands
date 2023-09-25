@@ -1,19 +1,31 @@
+##### First go to official website (https://git-scm.com/download/linux) and download git for linux os
+I prefer Ubuntu linux so for the latest stable version, used the following command:
+
+# apt-get install git -y
+
+**** Check whether git installed or not by using git --version command
+ 
+##### After downloading and installing git, how can you start tracking project code???? by configuring it
+
+$$$$ Every command in git starts with 'git'
+
+***************** One time used commands or global configurations or parameters: 
+To understand who has written a particular code in remote repo while multiple developers are working *********************
+
 git config --global user.name "<github_account_name>"
 git config --global user.email "<github_emailaddress>"
 git config --list
 
-git clone
-git push 
-git pull
+Daily used commands
+===================
 
-
-git init
+git init 
 git status
-git add <file_name> or git add .
+git add <file_name> or git add . 
 
-git commit -m "<message>" =====>git commit -am "<message>"
-git commit --amend -am "<message>"  :want to change last commit message
-
+git commit -m "<message>"
+git commit -am "<message>"
+git commit --amend -am "<message>"  
 
 git log 
 git log --oneline 
@@ -21,8 +33,106 @@ git log --since <YYYY-MM-DD> --until <YYYY-MM-DD>
 git log --author "<author_name>"
 git log --grep "<key_word>"
 git log -n
+git log <file_name>
+git log wc -l
 
 git diff <old commit id>..<new commit id>
-git show <commit id>      :file contents/info of the version at that commit point of time
+git show <commit id>     
 
-git .ignore
+vi .gitignore
+*.txt
+*.java
+*.php
+*.py
+*.sh
+*.net
+
+<any filename starting with or not starting with any specific letter>
+!c.*
+d.*
+[aeiou].*
+!<wanted_file_name>.<any_ignored_extension>
+
+git branch
+git branch <branch_name>
+git checkout <branch_name>
+git branch -D/-d <branch_name>
+git branch --move/-m <old_branch_name> <new_branch_name>
+
+git diff <target_branch>..<source_branch>
+git merge <modified/source branch_name>
+
+###################################### git merge conflict ##########################################################
+when there's a different code or codes not matching inside the same file at same line/level on 2 different branches, 
+then while merging the 2 branches a conflict will occur. In such case, first resolve the conflict then do merge.
+
+git merge --abort
+
+while solving merge conflict, no need to enter commit message::::::::: git commit
+
+git cherry-pick <commit_id>
+
+git reflog
+git checkout -b <deleted branch_name> <HEAD>
+
+git stash save "<message>"
+git stash list
+git stash apply <stash_id>
+git stash pop <stash_id>
+git stash drop 
+git stash clear
+
+git reset --soft <commit_id>
+git reset --mixed <commit_id>
+git reset --hard <commit_id>
+
+git tag -a <tag_name> -m "message" <commit_id>
+git tag
+
+git mv <old_file_name> <new_file_name>
+git rm <file_name>
+
+########## DVCS:::: GIT HUB: CLOUD BASED APPLICATION , NO NEED TO MAINTAIN SERVER , ONLINE/REMOTE REPOSITORY ##############
+
+* I'm understanding, is there any remote repositories that my local repository knows or not ?
+** Do I have any communication with remote repositories or not ??
+*** Am I connected to any remote repositories or not ???
+**** Do I know any one remotely or not ????  
+
+git remote
+
+###### To establish a communication from your local repo to remote repo, we need to create a remote repo first #######
+then execute :::::::::::: git remote add origin <remote_repo_url>
+
+******* If we want to talk to remote repo, then there should be a communication link or 
+a channel to send data, that is origin ************************************************
+
+git remote -v
+
+git push -u origin master
+
+git branch -r
+git branch -a
+
+git fetch 
+
+git clone <online_repository_link>
+git push 
+git pull
+
+
+git revert HEAD <commit_id>
+
+git push origin master <tag_name>
+
+Fork
+Public & Private repo (only 1 for free version)
+Delete a repo
+Collaborator 
+
+
+
+
+
+
+
