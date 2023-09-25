@@ -1,0 +1,50 @@
+SCM- source code management OR VCS- version control system:
+-----------------------------------------------------------
+
+WHY TO CONTROL VERSION OR WHAT MUST BE MANAGED IN SOURCE CODE OR WHY WE NEED SOURCE CODE MANAGEMENT TOOLS?????
+--------------------------------------------------------------------------------------------------------------
+==============================================================================================================
+
+Example: 
+--------
+To create an application/software/tool, developers need to write programs or code.
+This is the first phase/stage of a project which is called Development/Implementation where developers will write a code
+		 
+OS can be called as a software/application/tool:
+------------------------------------------------
+Lot of developers will work and write multiple lines of code or multiple programs, multiple support files or multiple dependency files or multiple libraries will be using, jar/war/ear files etc.
+Any enterprise level OS, will be having not less than 10M supporting files as multiple developers will be working on OS.
+In 10M files, which developer has done what change? who has changed/written/modified/updated which file?? who has done what??? can we manually track all the changes that are happening in 10M files????
+
+IF IT'S NOT POSSIBLE TO TRACK MANUALLY==>SO WE'LL TAKE HELP OF SOFTWARE WHICH IS CALLED AS SOURCE CODE
+(PROGRAMING FILES,SUPPORT FILES, WHATEVER THE FILES WE ARE UTILIZING TO GENERATE A PARTICULAR APPLICATION)
+
+WE NEED TO PROPERLY MANAGE SOURCE CODE BY USING SCM TOOLS:
+==========================================================
+STORE ALL THE CODE IN ONE PLACE. TO MANAGE LARGE NUMBER OF FILES/TO KEEP TRACK OF ALL THE CHANGES IN THE LARGE NO.OF FILES===================>WE NEED A SOFTWARE, WHICH IS CALLED VCS/SCM.
+
+IMP INTERVIEW QUESTION: Diff between CVCS and DVCS 
+(submit/upload/commit/checkin/push/store the code into Central server) 
+(where you're storing final version of code is called REPOSITORY)
+1. Server down issues
+2. file size issues: lazy transfer (diskfull errors) and smart transfer (MB to KB)
+
+WHAT KIND OF FILES ARE SIUTABLE TO STORE IN SCM LIKE GIT???
+Programming files (scripts, pdf, txt, supported files for your app to develop) only irrespective of programming language. 
+Not for videos, mp3, audio, images, jpeg
+
+any technology/tool/software==>ICU (Install, configure, Usage)
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
