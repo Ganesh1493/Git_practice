@@ -1,0 +1,28 @@
+git config --global user.name "<github_account_name>"
+git config --global user.email "<github_emailaddress>"
+git config --list
+
+git clone
+git push 
+git pull
+
+
+git init
+git status
+git add <file_name> or git add .
+
+git commit -m "<message>" =====>git commit -am "<message>"
+git commit --amend -am "<message>"  :want to change last commit message
+
+
+git log 
+git log --oneline 
+git log --since <YYYY-MM-DD> --until <YYYY-MM-DD>
+git log --author "<author_name>"
+git log --grep "<key_word>"
+git log -n
+
+git diff <old commit id>..<new commit id>
+git show <commit id>      :file contents/info of the version at that commit point of time
+
+git .ignore
