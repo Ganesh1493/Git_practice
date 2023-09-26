@@ -32,7 +32,11 @@ git commit -m "<message>"
 git commit -am "<message>"
 git commit --amend -am "<message>"  
 
+git config --global alias.<alias_name> <git_command>
+
 git log 
+git shortlog
+git log --all
 git log --oneline 
 git log --since <YYYY-MM-DD> --until <YYYY-MM-DD>
 git log --author "<author_name>"
@@ -40,6 +44,7 @@ git log --grep "<key_word>"
 git log -n
 git log <file_name>
 git log wc -l
+git log --graph --decorate
 
 git diff <old commit id>..<new commit id>
 git show <commit id>     
@@ -63,6 +68,7 @@ git branch <branch_name>
 git checkout <branch_name>
 git branch -D/-d <branch_name>
 git branch --move/-m <old_branch_name> <new_branch_name>
+git checkout -b <new_branch_name>
 
 git diff <target_branch>..<source_branch>
 git merge <modified/source branch_name>
@@ -96,6 +102,8 @@ git tag
 
 git mv <old_file_name> <new_file_name>
 git rm <file_name>
+
+git clean
 
 ########## DVCS:::: GIT HUB: CLOUD BASED APPLICATION , NO NEED TO MAINTAIN SERVER , ONLINE/REMOTE REPOSITORY ##############
 
@@ -155,8 +163,8 @@ git revert HEAD <commit_id>
 
 git push origin master <tag_name>
 
-Fork
-Delete a repo
+*Fork
+*Delete a repository
 
 ****** Collaborator : working in a team together, giving permission to other employees/users to access the repository ************
 
