@@ -1,9 +1,9 @@
 ##### First go to official website (https://git-scm.com/download/linux) and download git for linux os
-I prefer Ubuntu linux so for the latest stable version, used the following command:
+I prefer Ubuntu linux so for the latest stable version, I used the following command:
 
 # apt-get install git -y
 
-**** Check whether git installed or not by using git --version command
+**** Check whether git installed or not by using git --version command ********
  
 ##### After downloading and installing git, how can you start tracking project code???? by configuring it
 
@@ -19,8 +19,13 @@ git config --list
 Daily used commands
 ===================
 
-git init 
-git status
+git init : git will create 3 stages/areas internally which we can't see physically but exists in the backend
+
+1. Working directory
+2. Staging/Cache area
+3. Local repository
+
+git status  
 git add <file_name> or git add . 
 
 git commit -m "<message>"
@@ -102,6 +107,7 @@ git rm <file_name>
 git remote
 
 ###### To establish a communication from your local repo to remote repo, we need to create a remote repo first #######
+Public & Private repo (only 1 for free version)
 then execute :::::::::::: git remote add origin <remote_repo_url>
 
 ******* If we want to talk to remote repo, then there should be a communication link or 
@@ -110,29 +116,53 @@ a channel to send data, that is origin *****************************************
 git remote -v
 
 git push -u origin master
+username:Ganesh1493
+password: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
+
+Developer machine:
+1. Working directory
+2. Staging/Cache area
+3. Local repository (master)
+
+Because you've added a remote repository right now, a new area will be created that is
+4. Local remote area (origin)
 
 git branch -r
 git branch -a
 
+git diff <local_branchname>..<local_remote_branchname>
+
 git fetch 
 
-git clone <online_repository_link>
-git push 
-git pull
+git checkout master
+git merge <Local_remote_branch>
 
+git pull (git fetch + git merge)
+
+#####################################################################################################################################
+* You are joining in an org as a new employee and you don't know anything what is happening in your project. Your manager has assigned 
+  you a task and asked to work on a particular module
+* You're not aware of anything about the project and you don't have any project code to work on. so you'll be provided  with the 
+  project URL so you can copy the code
+* If you want to start working on existing project, you need to have entire project code with you, then only you'll be working on it
+
+How can you get entire project code ??????
+
+git clone <online_repository_link>
+creating a project directory in your local machine including branches&log files, going inside it, initializing also.
 
 git revert HEAD <commit_id>
 
 git push origin master <tag_name>
 
 Fork
-Public & Private repo (only 1 for free version)
 Delete a repo
-Collaborator 
 
+****** Collaborator : working in a team together, giving permission to other employees/users to access the repository ************
 
-
-
-
-
-
+* Creating repositories for different projects
+** Managing the access of repository- Allowing new employees to access remote repositories where the project code is stored
+*** Creating the branches as per the requirement
+**** Understanding the requirement and creating branching strategies
+***** resolving conflicts if any
+****** collaborating with other development teams or other teams to resolve issues
