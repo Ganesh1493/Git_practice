@@ -31,6 +31,9 @@ git add <file_name> or git add .
 git commit -m "<message>"
 git commit -am "<message>"
 git commit --amend -am "<message>"  
+git commit --amend --no-edit
+git rebase -i HEAD~N
+git rebase -i <commit-id>
 
 git config --global alias.<alias_name> <git_command>
 
