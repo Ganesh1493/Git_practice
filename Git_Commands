@@ -106,7 +106,7 @@ git tag
 git mv <old_file_name> <new_file_name>
 git rm <file_name>
 
-git clean
+git clean -f -d -x
 
 ########## DVCS:::: GIT HUB: CLOUD BASED APPLICATION , NO NEED TO MAINTAIN SERVER , ONLINE/REMOTE REPOSITORY ##############
 
