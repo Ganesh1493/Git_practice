@@ -222,12 +222,17 @@ git stash drop : a command used to permanently remove the most recent stash from
 git stash clear : a command used to permanently remove all stashed changes from the stash list
 ---------------
 
-=================================================================================================================
+===========================================================================================================================================================
 
-git reset --soft <commit_id>
-git reset --mixed <commit_id>
-git reset --hard <commit_id>
+git reset --soft <commit_id> : a command used to reset the current branch to a specific commit while keeping the changes from that commit in the staging area
+----------------------------   This means that the changes from the specified commit will be staged, ready to be committed again
 
+git reset --mixed <commit_id> : a command used to reset the current branch to a specific commit while also unstaging the changes
+----------------------------    This means that the changes from the specified commit will be in your working directory but not staged for commit
+
+git reset --hard <commit_id> : a comamnd used to reset the current branch and working directory to a specific commit, 
+----------------------------   effectively discarding any changes and commits that come after it
+                               
 =============================================================================================================
 
 Tags: It assign a meaningful name with a specific version in the repository. Once a tag is created for 
