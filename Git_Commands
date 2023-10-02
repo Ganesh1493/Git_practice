@@ -3,7 +3,7 @@ I prefer Ubuntu linux so for the latest stable version, I used the following com
 
 # apt-get install git -y
 
-**** Check whether git installed or not by using git --version command ********
+****** Verify whether git installed or not by using 'git --version' command ********
  
 ##### After downloading and installing git, how can you start tracking project code???? by configuring it
 
@@ -16,43 +16,127 @@ git config --global user.name "<github_account_name>"
 git config --global user.email "<github_emailaddress>"
 git config --list
 
+=============================================================================================================
 Daily used commands
 ===================
 
 git init : git will create 3 stages/areas internally which we can't see physically but exists in the backend
 
-1. Working directory
-2. Staging/Cache area
-3. Local repository
+1. Working directory: contains files in a current local directory that we're working on
+2. Staging/Cache area: It's a temporary area where we add files with git add command
+3. Local repository: We need to perform commit operation that moves the files from the staging area
+                     to local repository
 
-git status  
-git add <file_name> or git add . 
+git status  : a command used to display the current state of the repository. When you run git status, Git provides information about:
+------------  Branch Information, Staged and Unstaged Changes, Untracked Files
 
-git commit -m "<message>"
-git commit -am "<message>"
-git commit --amend -am "<message>"  
-git commit --amend --no-edit
-git rebase -i HEAD~N
-git rebase -i <commit-id>
+git add <file_name> : This command stages (from working directory to staging area) a specific/particular file for the next commit
+--------------------  Replace <file_name> with the actual name of the file you want to stage
 
-git config --global alias.<alias_name> <git_command>
+git add . : This command stages (from working directory to staging area) all changes in the current directory and its subdirectories
+----------  It's a convenient way to stage multiple files or all changes at once
+            The dot represents the current directory
 
-git log 
-git shortlog
-git log --all
-git log --oneline 
-git log --since <YYYY-MM-DD> --until <YYYY-MM-DD>
-git log --author "<author_name>"
-git log --grep "<key_word>"
-git log -n
-git log <file_name>
-git log wc -l
-git log --graph --decorate
+git commit -m "<message>" :  a command used to create a new commit in your repository. This command combines two steps:
+-------------------------    Staging Changes: It assumes that you have already used git add to stage the changes you want to include in the commit
+                             Creating a Commit: The -m is used to add a message to the commit. This message should briefly describe the changes or the purpose of the commit
 
-git diff <old commit id>..<new commit id>
-git show <commit id>     
+git commit -am "<message>" : a shorcut way to stage all modified files and create a commit with a message in one single step
+--------------------------
 
-vi .gitignore
+git commit --amend -am "<message>" : command used to amend/modify the most recent/last commit by changing its commit message before pushing it
+-----------------------------------  
+
+git commit --amend --no-edit : command used to amend/modify the most recent/last commit without changing its commit message before pushing it
+-----------------------------
+
+git rebase -i HEAD~N : It's an interactive rebase in Git. Here's what each part of the command does:
+--------------------   git rebase: This command is used to reapply commits on top of another base commit. It's a powerful tool for rewriting commit history
+                       -i: This flag stands for "interactive". It tells Git that you want to perform an interactive rebase, which means you'll have the opportunity to choose which commits to include, edit commit messages, and perform other operations
+                       HEAD~N: This specifies the commit you want to use as the new base for the rebase. HEAD refers to the current commit, and ~N means "N commits before HEAD". So, HEAD~N refers to the commit N steps back from the current one
+                       For example, if you use git rebase -i HEAD~3, you'll be performing an interactive rebase with the last three commits
+
+git rebase -i <commit-id> : It's an interactive rebase in Git just like git rebase -i HEAD~N
+-------------------------   However, in this case, you're specifying a specific commit to serve as the base for the rebase operation
+
+git config --global alias.<alias_name> <git_command> : a command used to create a custom alias for a Git command
+-----------------------------------------------------  This alias allows you to use a shorter or more memorable name for a frequently used Git command
+
+===========================================================================================================================================================================
+
+git mv <old_file_name> <new_file_name> : a command used to rename or move a file in a Git repository while simultaneously staging the change for the next commit
+---------------------------------------
+
+git rm -f <file_name> : a command used to remove a file from both the working directory and the Git repository
+---------------------   This means the file will be deleted from your local file system as well as from the Git history
+
+git rm --cached <filename> : a command used to remove a file from Git repo without deleting it from your local file system
+---------------------------  This means the file will be untracked, but it will still exist in your working directory
+
+git clean : a command used to remove untracked files from the working directory
+---------
+
+git clean -–dry-run : a command used to preview the files that would be deleted from the working directory 
+-------------------
+ 
+git clean -f : a command used to permanently remove untracked files from the working directory of a Git repository
+-------------  -f: This option stands for "force". It ensures that the clean operation is carried out without asking for confirmation
+
+git clean -f -d : a command used to remove untracked files and directories from the working directory of a Git repository, including untracked directories
+---------------
+
+git clean -f -d -x : a command used to perform a more aggressive cleanup of untracked files and directories in a Git repository 
+------------------   -x: This option is used to remove untracked files that are ignored by git. This can include files listed in your .gitignore file.
+
+==================================================================================================================================================================================================================================================================
+
+git log : a command used in Git to display list of commits in a repository. For understanding the history of a Git repository, and it's often used to track changes, identify when specific features or bug fixes were introduced, and more
+-------   It provides information about each commit, including the commit hash, author, date, and commit message
+
+git shortlog : a command used to generate a summary of Git commits, grouped by author
+------------   It's particularly useful for getting a quick overview of who has been contributing to a project and how many commits each author has made
+
+git log --all : a command used to display the commit history of all branches in the repository, including local and remote branches
+-------------
+
+git log --oneline : a command used to display a condensed version of the commit history in a Git repository 
+------------------  It provides a single-line summary for each commit, showing only the commit hash and the commit message
+
+git log --since <YYYY-MM-DD> --until <YYYY-MM-DD>: a command used to filter the commit history based on a specific date range
+-------------------------------------------------  This allows you to view only the commits that were made within that range
+
+git log --author "<author_name>" : a command used to filter the commit history based on the author's name 
+---------------------------------  This allows you to view only the commits made by a specific author
+
+git log --author "<Author Name>" "<filename>" : a command used to filter the commit history based on both the author's name and a specific file
+----------------------------------------------  This command will display commits made by a specific author that affected a particular file
+
+git log --grep "<key_word>" :  a command used to search the commit history for commits that contain a specific keyword or phrase in their commit messages
+----------------------------
+
+git log -n : a command used to limit the number of commits displayed in the output
+----------   The -n option is followed by a number, which determines how many of the latest commits you want to see
+
+git log <file_name> : a command used to display the commit history of a specific file
+--------------------  It shows the commits that have affected the specified file, along with their commit messages, authors, dates, and commit hashes
+
+git log | wc -l : a command used to count the number of commits in a Git repository
+----------------
+
+git log --graph --decorate : a command used to display the commit history in a graphical and decorated format
+---------------------------  This is particularly useful for visualizing branches, merges, and commit references
+
+git diff <old commit id>..<new commit id> : a command used to view the changes between two specific commits in a Git repository
+-----------------------------------------
+
+git show <commit id> : a command used to display detailed information about a specific commit in a Git repository
+---------------------  It provides a summary of the changes introduced by that commit, including the commit message, author, date, and the actual changes made to the files
+
+============================================================================================================================================================
+
+vi .gitignore : opens the git ignore file in the Vi text editor. 
+--------------  The .gitignore file is used to specify which files and directories should be ignored by git
+
 *.txt
 *.java
 *.php
@@ -66,47 +150,94 @@ d.*
 [aeiou].*
 !<wanted_file_name>.<any_ignored_extension>
 
-git branch
-git branch <branch_name>
-git checkout <branch_name>
-git branch -D/-d <branch_name>
-git branch --move/-m <old_branch_name> <new_branch_name>
-git checkout -b <new_branch_name>
+==================================================================================================================================
 
-git diff <target_branch>..<source_branch>
+git branch : a command used to manage branches in a git repository. When used without any additional arguments, 
+----------   it displays a list of existing branches along with an indication of the currently active branch
+
+git branch <branch_name> : a command used to create a new branch in a git repository with the specified name
+------------------------
+
+git checkout <branch_name> : a command used to switch between different branches in a git repository
+--------------------------   This command allows you to move your working directory to a different branch, making it the active branch
+
+git branch -D/-d <branch_name> : <branch_name>: This is the name of the branch you want to delete
+------------------------------   -D: This option stands for "force delete". It's used to permanently delete the branch, even if it has unmerged changes
+                                 -d: This option stands for "delete". It's used to delete the branch, but only if all the changes in the branch have been merged
+                                 
+git branch --move/-m <old_branch_name> <new_branch_name> : a command used to used to move or rename a branch
+--------------------------------------------------------
+
+git checkout -b <new_branch_name> :  a command to create a new branch and immediately switch in to it
+----------------------------------   This is a convenient shortcut that combines the creation and checkout steps into one command
+
+git diff <target_branch>..<source_branch: a command used to view the differences between two branches in a git repository
+----------------------------------------  <target_branch>: This is the branch you want to compare against
+                                          <source_branch>: This is the branch you want to compare from
+
+==================================================================================================================================================
+
 git merge <modified/source branch_name>
 
 ###################################### git merge conflict ##########################################################
 when there's a different code or codes not matching inside the same file at same line/level on 2 different branches, 
-then while merging the 2 branches a conflict will occur. In such case, first resolve the conflict then do merge.
+then while merging the 2 branches a conflict will occur. In such case, first resolve the conflict then do merge
 
 git merge --abort
 
 while solving merge conflict, no need to enter commit message::::::::: git commit
 
-git cherry-pick <commit_id>
+============================================================================================================================
 
-git reflog
-git checkout -b <deleted branch_name> <HEAD>
+git cherry-pick <commit_id> : a command used to apply the changes introduced by a specific commit to your current branch
+---------------------------   This allows you to selectively bring in changes from one branch to another
 
-git stash save "<message>"
-git stash list
-git stash apply <stash_id>
-git stash pop <stash_id>
-git stash drop 
-git stash clear
+git reflog : a command used to display a detailed history of operations that have been performed in a git repository. 
+----------   It provides a log of references updates (e.g., branch creations, commits, checkouts) which is 
+             particularly useful for recovering lost commits or branches
+
+git checkout -b <deleted branch_name> <HEAD> : a command to recreate/recover a branch that has been deleted previously and move into receovered branch
+--------------------------------------------
+
+=================================================================================================================
+
+git stash : a command used when you want to switch branches or perform other operations without committing half-finished work. 
+---------   It allows you to temporarily set aside your changes and then reapply them later
+
+git stash save "<message>" : a command used to save changes in your working directory and index (staging area) on a stack with an associated message
+---------------------------  This allows you to provide a descriptive message for the stash, which can be helpful for later reference
+
+git stash list : a command used to display a list of stashes that have been saved in your git repository
+--------------   It shows the stash reference (a unique identifier), the branch where the stash was created, and an optional message associated with the stash
+
+git stash apply <stash_id> : a command used to apply changes from a specific stash back to your working directory and index (staging area) leaveing the stash in the stash list
+--------------------------   This means you can apply the same stash multiple times if needed
+
+git stash pop <stash_id> : a command used to apply changes from a specific stash and then remove that stash from the stash list
+------------------------
+
+git stash drop : a command used to permanently remove the most recent stash from the stash list
+-------------    dropped stash cannot be recovered. If you have uncommitted changes in your working directory, it will not affect those changes
+
+git stash clear : a command used to permanently remove all stashed changes from the stash list
+---------------
+
+=================================================================================================================
 
 git reset --soft <commit_id>
 git reset --mixed <commit_id>
 git reset --hard <commit_id>
 
+=============================================================================================================
+
+Tags: It assign a meaningful name with a specific version in the repository. Once a tag is created for 
+      a particular save, even if you create a new commit it will not get updated.
+
+git tag 
 git tag -a <tag_name> -m "message" <commit_id>
-git tag
 
-git mv <old_file_name> <new_file_name>
-git rm <file_name>
+=============================================================================================================
 
-git clean -f -d -x
 
 ########## DVCS:::: GIT HUB: CLOUD BASED APPLICATION , NO NEED TO MAINTAIN SERVER , ONLINE/REMOTE REPOSITORY ##############
 
@@ -165,9 +296,6 @@ creating a project directory in your local machine including branches&log files,
 git revert HEAD <commit_id>
 
 git push origin master <tag_name>
-
-*Fork
-*Delete a repository
 
 ****** Collaborator : working in a team together, giving permission to other employees/users to access the repository ************
 
